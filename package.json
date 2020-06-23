@@ -1,0 +1,32 @@
+{
+  "name": "node-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --require ts-node/register src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@101.132.161.40:/srv/node-upload.git"
+  },
+  "keywords": [
+    "just for fun"
+  ],
+  "author": "smile",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^9.0.1",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-router": "^9.0.1",
+    "koa-static": "^5.0.0",
+    "qr-image": "^3.2.0",
+    "typescript": "^3.9.5"
+  },
+  "devDependencies": {
+    "@types/koa-router": "^7.4.1",
+    "@types/koa-static": "^4.0.1",
+    "ts-node": "^8.10.2"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>
+<!--  <div id="refresh">刷新</div>-->
+  <ul id="ul"></ul>
+</div>
+<script>
+  const ul = document.getElementById('ul')
+  const refresh = document.getElementById('refresh')
+
+  getList()
+
+  refresh.addEventListener('click', () => {
+    getList()
+  })
+
+  function getList() {
+    fetch('/upload-list', {
+      method: 'get',
+    }).then(resp => resp.json()).then(res => {
+      ul.innerHTML = ''
+      const fragment = document.createDocumentFragment()
+      res.list.forEach(item => {
+
+        const li = document.createElement('li')
+        const a = document.createElement('a')
+        a.href = item.path
+        a.innerText = item.name
+        li.append(a)
+        fragment.append(li)
+      })
+      ul.append(fragment)
+    })
+  }
+
+
+</script>
+</body>
+</html>

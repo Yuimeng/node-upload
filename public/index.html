@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+    <form action="/upload" method="post">
+        <input type="file" name="files" id="file-upload" accept="image/*">
+        <input type="submit" id="submit" value="上传">
+    </form>
+
+    <script>
+      const input = document.getElementById('file-upload')
+      const submit = document.getElementById('submit')
+
+      submit.addEventListener('click', e => {
+        e.preventDefault()
+        let formData = new FormData()
+        formData.append('file', input.files[0])
+
+        fetch('/upload', {
+          method: 'post',
+          body: formData,
+        }).then(resp => resp.json()).then(res => {
+          alert(res.message)
+        })
+      })
+    </script>
+</div>
+</body>
+</html>
